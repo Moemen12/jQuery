@@ -1,5 +1,81 @@
-jQuery is a JavaScript Library.
+<!-- jQuery is a JavaScript Library.
 jQuery greatly simplifies JavaScript programming.
 jQuery is easy to learn.
 
 ---------------------------------
+jQuery Syntax
+Basic syntax is: $(selector).action()
+
+Examples:
+----------
+$(this).hide() - hides the current element.
+$("p").hide() - hides all <p> elements.
+$(".test").hide() - hides all elements with class="test".
+$("#test").hide() - hides the element with id="test".
+
+All jQuery code must be written between:
+
+1-first metohd
+$(document).ready(function(){
+  // jQuery methods go here...
+});
+
+2-second method
+$(function(){
+  // jQuery methods go here...
+});
+
+The $(document).ready() method allows us to execute a function when the document is fully loaded.
+
+
+jQuery Events:
+-------------
+click - keypress -	submit -	load
+dblclick -	keydown -	change -	resize
+mouseenter -	keyup -	focus -	scroll
+mouseleave - blur -	unload - hover
+
+And there are other Events we can see it  form here
+https://api.jquery.com/category/events/
+
+
+The on() method attaches one or more event handlers for the selected elements.
+
+example:
+--------
+
+
+$(document).ready(function(){
+  $("p").on({
+    mouseenter: function(){
+      $(this).css("background-color", "lightgray");
+    },  
+    mouseleave: function(){
+      $(this).css("background-color", "lightblue");
+    }, 
+    click: function(){
+      $(this).css("background-color", "yellow");
+    }  
+  });
+});
+
+
+
+
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
