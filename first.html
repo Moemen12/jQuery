@@ -59,6 +59,197 @@ $(document).ready(function(){
   });
 });
 
+jQuery Effects - Hide and Show
+---------------------------------
+hide(speed,callback)
+show(speed,callback)
+
+The optional speed parameter specifies the speed of the hiding/showing, and can take the following values: "slow", "fast", or milliseconds.
+The optional callback parameter is a function to be executed after the hide() or show()
+
+
+$("#hide").click(function(){
+  $("p").hide();
+});
+
+$("#show").click(function(){
+  $("p").show();
+});
+
+jQuery toggle()
+----------------
+You can also toggle between hiding and showing an element with the toggle() method.
+
+toggle(speed,callback)
+
+jQuery Effects - Fading
+------------------------
+jQuery has the following fade methods:
+
+    fadeIn()
+    fadeOut()
+    fadeToggle()
+    fadeTo()
+
+fadeIn(speed,callback):
+the element appears from nothing
+
+
+
+fadeOut(speed,callback):
+-------
+the element disappears 
+
+fadeToggle(speed,callback)
+The jQuery fadeToggle() method toggles between the fadeIn() and fadeOut() methods.
+
+fadeTo(speed,opacity,callback)
+--------------------------------
+The jQuery fadeTo() method allows fading to a given opacity (value between 0 and 1).
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").fadeTo("slow", 0.15);
+    $("#div2").fadeTo("slow", 0.4);
+    $("#div3").fadeTo("slow", 0.7);
+  });
+});
+
+
+
+jQuery Effects - Sliding
+-----------------------
+
+slideDown(speed,callback) : slide to down
+slideUp(speed,callback)   : slide to up
+slideToggle(speed,callback) : slide to down & up
+
+
+jQuery Effects - Animation
+--------------------------
+
+animate({params},speed,callback)
+The required params parameter defines the CSS properties to be animated.
+
+Example
+--------
+$("button").click(function(){
+  $("div").animate({left: '250px'});
+});
+
+
+Notice that multiple properties can be animated at the same time:
+-------------------------------------------------------------------
+$(document).ready(function(){
+  $("button").click(function(){
+    $("div").animate({
+      left: '250px',
+      opacity: '0.5',
+      height: '150px',
+      width: '150px'
+    });
+  });
+});
+
+
+animate() - Using Relative Values
+-------------------------------------
+$(document).ready(function(){
+  $("button").click(function(){
+    $("div").animate({
+      left: '+=250px',
+      height: '+=150px',
+      width: '+=150px'
+    });
+  });
+});
+
+
+jQuery animate() - Uses Queue Functionality
+-----------------------------------------
+these animations will be work one after one
+
+$("button").click(function(){
+  var div = $("div");
+  div.animate({height: '300px', opacity: '0.4'}, "slow");
+  div.animate({width: '300px', opacity: '0.8'}, "slow");
+  div.animate({height: '100px', opacity: '0.4'}, "slow");
+  div.animate({width: '100px', opacity: '0.8'}, "slow");
+}); 
+
+
+jQuery stop() Method
+-----------------------
+The jQuery stop() method is used to stop an animation or effect before it is finished.
+
+stop(stopAll,goToEnd)
+
+we can use it without parametres
+
+example:
+-------
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideDown(5000);
+  });
+  $("#stop").click(function(){
+    $("#panel").stop();
+  });
+});
+
+
+jQuery Callback Functions
+-------------------------
+
+A callback function is executed after the current effect is finished.
+
+example
+-------
+
+$("button").click(function(){
+  $("p").hide("slow", function(){
+    alert("The paragraph is now hidden");
+  });
+});
+
+
+The example below has no callback parameter, and the alert box will be displayed before the hide effect is completed:
+!!! alert function will be work before hide function
+
+$("button").click(function(){
+  $("p").hide(1000);
+  alert("The paragraph is now hidden");
+}); 
+
+
+jQuery - Chaining
+-------------------
+Chaining allows us to run multiple jQuery methods (on the same element) within a single statement.
+
+example:
+--------
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
