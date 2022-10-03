@@ -149,6 +149,295 @@ $(document).ready(function(){
 });
 
 
+jQuery - Remove Elements
+------------------------
+With jQuery, it is easy to remove existing HTML elements
+
+  remove() - Removes the selected element (and its child elements)
+  empty() - Removes the child elements from the selected element
+-----------------------------------------------
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").remove();
+  });
+});
+
+other example:
+--------------
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").empty();
+  });
+});
+
+
+Filter the Elements to be Removed
+----------------------------------
+The jQuery remove() method also accepts one parameter, which allows you to filter the elements to be removed.
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").remove(".test");
+  });
+});
+
+This example removes all <p> elements with class="test" and class="demo":
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").remove(".test, .demo");
+  });
+});
+
+
+jQuery - Get and Set CSS Classes
+----------------------------------
+addClass() - Adds one or more classes to the selected elements
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("h1, h2, p").addClass("blue");
+    $("div").addClass("important");
+  });
+});
+
+removeClass() - Removes one or more classes from the selected elements
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("h1, h2, p").removeClass("blue");
+  });
+});
+
+
+toggleClass() - Toggles between adding/removing classes from the selected elements
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("h1, h2, p").toggleClass("blue");
+  });
+});
+
+
+css() - Sets or returns the style attribute
+----------------------------------------------
+
+
+The css() method sets or returns one or more style properties for the selected elements.
+The following example will return the background-color value of the FIRST matched element:
+
+$(document).ready(function(){
+  $("button").click(function(){
+    alert("Background color = " + $("p").css("background-color"));
+  });
+});
+
+output:
+------
+Background color = rgb(255, 0, 0)
+
+Set a CSS Property
+---------------------
+css("propertyname","value");
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").css("background-color", "yellow");
+  });
+});
+
+
+Set Multiple CSS Properties
+----------------------------
+css({"propertyname":"value","propertyname":"value",...});
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").css({"background-color": "yellow", "font-size": "200%"});
+  });
+});
+
+jQuery Dimension Methods
+---------------------------
+
+
+    width()
+    height()
+    innerWidth()
+    innerHeight()
+    outerWidth()
+    outerHeight()
+
+$(document).ready(function(){
+  $("button").click(function(){
+    var txt = "";
+    txt += "Width of div: " + $("#div1").width() + "</br>";
+    txt += "Height of div: " + $("#div1").height();
+    $("#div1").html(txt);
+  });
+});
+
+output:
+------
+Width of div: 300
+Height of div: 100
+
+
+The innerWidth() method returns the width of an element (includes padding).
+The innerHeight() method returns the height of an element (includes padding).
+
+$(document).ready(function(){
+  $("button").click(function(){
+    var txt = "";
+    txt += "Width of div: " + $("#div1").width() + "</br>";
+    txt += "Height of div: " + $("#div1").height() + "</br>";
+    txt += "Inner width of div: " + $("#div1").innerWidth() + "</br>";
+    txt += "Inner height of div: " + $("#div1").innerHeight();
+    $("#div1").html(txt);
+  });
+});
+
+output:
+------
+Width of div: 300
+Height of div: 100
+Inner width of div: 320
+Inner height of div: 120
+
+jQuery outerWidth() and outerHeight() Methods
+by default it's false
+
+The outerWidth() method returns the width of an element (includes padding and border).
+The outerHeight() method returns the height of an element (includes padding and border)
+
+example:
+-------
+$(document).ready(function(){
+  $("button").click(function(){
+    var txt = "";
+    txt += "Width of div: " + $("#div1").width() + "</br>";
+    txt += "Height of div: " + $("#div1").height() + "</br>";
+    txt += "Outer width of div: " + $("#div1").outerWidth() + "</br>";
+    txt += "Outer height of div: " + $("#div1").outerHeight();
+    $("#div1").html(txt);
+  });
+});
+
+output:
+------
+Width of div: 300
+Height of div: 100
+Outer width of div: 322
+Outer height of div: 122
+
+-------------------------------------------
+
+The outerWidth(true) method returns the width of an element (includes padding, border, and margin).
+The outerHeight(true) method returns the height of an element (includes padding, border, and margin).
+
+$(document).ready(function(){
+  $("button").click(function(){
+    var txt = "";
+    txt += "Width of div: " + $("#div1").width() + "</br>";
+    txt += "Height of div: " + $("#div1").height() + "</br>";
+    txt += "Outer width of div (margin included): " + $("#div1").outerWidth(true) + "</br>";
+    txt += "Outer height of div (margin included): " + $("#div1").outerHeight(true);
+    $("#div1").html(txt);
+  });
+});
+
+output:
+-----
+Width of div: 300
+Height of div: 100
+Outer width of div (margin included): 328
+Outer height of div (margin included): 128
+
+The following example returns the width and height of the document (the HTML document) and window (the browser viewport):
+
+$(document).ready(function(){
+  $("button").click(function(){
+    var txt = "";
+    txt += "Document width/height: " + $(document).width();
+    txt += "x" + $(document).height() + "\n";
+    txt += "Window width/height: " + $(window).width();
+    txt += "x" + $(window).height();
+    alert(txt);
+  });
+});
+
+output:
+-----
+Document width/height: 622x488
+Window width/height: 622x488
+
+
+
+the following example sets the width and height of a specified <div> element:
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").width(500).height(500);
+  });
+});
+
+----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -->
