@@ -1,0 +1,154 @@
+<!--
+
+jQuery - Get Content and Attributes
+------------------------------------
+
+text() - Sets or returns the text content of selected elements
+html() - Sets or returns the content of selected elements (including HTML markup)
+val() - Sets or returns the value of form fields
+
+example:
+--------
+
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    alert("Text: " + $("#test").text());
+  });
+  $("#btn2").click(function(){
+    alert("HTML: " + $("#test").html());
+  });
+});
+
+
+<p id="test">This is some <b>bold</b> text in a paragraph.</p>
+
+<button id="btn1">Show Text</button>
+<button id="btn2">Show HTML</button>
+
+
+when i click on btn1 the result will be : Text: This is some bold text in a paragraph.
+when i click on btn2 the result will be : HTML: This is some <b>bold</b> text in a paragraph.
+
+
+$(document).ready(function(){
+  $("button").click(function(){
+    alert("Value: " + $("#test").val());
+  });
+});
+
+output:
+------
+Value: Mickey Mouse
+
+
+jQuery - Set Content and Attributes
+-----------------------------------
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("#test1").text("Hello world!");
+  });
+  $("#btn2").click(function(){
+    $("#test2").html("<b>Hello world!</b>");
+  });
+  $("#btn3").click(function(){
+    $("#test3").val("Dolly Duck");
+  });
+});
+
+when we click the btn1 it will overate the text with the new text 
+
+!! Important
+--------------
+text(), html(), and val(), also come with a callback function.
+text(function(index, currentcontent))
+html(function(index, currentcontent))
+
+
+
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("#test1").text(function(i, origText){
+      return "Old text: " + origText + " New text: Hello world! (index: " + i + ")"; 
+    });
+  });
+  });
+
+
+Set Attributes - attr(function(index, currentcontent))
+----------------------
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
+  });
+});
+
+The attr() method also allows you to set multiple attributes at the same time.
+
+example:
+-------
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#w3s").attr({
+      "href" : "https://www.w3schools.com/jquery/",
+      "title" : "W3Schools jQuery Tutorial"
+    });
+  });
+});
+
+<p><a href="https://www.w3schools.com" title="some title" id="w3s">W3Schools.com</a></p>
+  
+jQuery - Add Elements
+-----------------------
+The jQuery append() method inserts content AT THE END of the selected HTML elements.
+
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("p").append(" <b>Appended text</b>.");
+  });
+
+  $("#btn2").click(function(){
+    $("ol").append("<li>Appended item</li>");
+  });
+});
+
+jQuery prepend() Method
+-------------------------
+The jQuery prepend() method inserts content AT THE BEGINNING of the selected HTML elements.
+
+
+Add Several New Elements With append() and prepend()
+---------------------------------------------------
+
+function appendText() {
+  var txt1 = "<p>Text.</p>";              // Create text with HTML
+  var txt2 = $("<p></p>").text("Text.");  // Create text with jQuery
+  var txt3 = document.createElement("p"); // Create text with DOM
+  txt3.innerHTML = "Text.";             
+  $("body").append(txt1, txt2, txt3);     // Append new elements
+  
+  
+}
+
+jQuery after() and before() Methods
+-----------------------------------
+The jQuery after() method inserts content AFTER the selected HTML elements.
+
+The jQuery before() method inserts content BEFORE the selected HTML elements.
+example:
+-------
+
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("img").before("<b>Before</b>");
+  });
+
+  $("#btn2").click(function(){
+    $("img").after("<i>After</i>");
+  });
+});
+
+
+
+
+-->
