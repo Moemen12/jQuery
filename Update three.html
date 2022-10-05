@@ -1,0 +1,304 @@
+<!--
+
+jQuery Traversing - Ancestors
+------------------------------
+
+Traversing Up the DOM Tree
+Three useful jQuery methods for traversing up the DOM tree are:
+
+parent()
+parents()
+parentsUntil()
+
+The parent() method returns the direct parent element of the selected element.
+
+example:
+--------
+$(document).ready(function(){
+  $("span").parent().css({"color": "red", "border": "2px solid red"});
+});
+
+
+
+  <div style="width:500px;">div (grandparent)   
+    <p>p (direct parent)
+      <span>span</span>
+    </p> 
+  </div>
+</div>
+
+-------------------------
+
+The parents() method returns all ancestor elements of the selected element, all the way up to the document's root element (<html>).
+!!!!! Important
+You can also use an optional parameter to filter the search for ancestors.
+
+$(document).ready(function(){
+  $("span").parents("ul").css({"color": "red", "border": "2px solid red"});
+});
+
+
+jQuery parentsUntil() Method
+----------------------------
+The parentsUntil() method returns all ancestor elements between two given arguments.
+
+$(document).ready(function(){
+  $("span").parentsUntil("div").css({"color": "red", "border": "2px solid red"});
+});
+
+ <div style="width:500px;">div (great-grandparent)
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span</span>
+      </li>
+    </ul>   
+  </div>
+
+
+ONLY li and ul will be red . All elements between span and div only
+
+jQuery Traversing - Descendants
+--------------------------------
+
+Traversing Down the DOM Tree
+Two useful jQuery methods for traversing down the DOM tree are:
+
+children()
+find()
+
+jQuery children() Method
+------------------------
+The children() method returns all direct children of the selected element.
+$(document).ready(function(){
+  $("div").children().css({"color": "red", "border": "2px solid red"});
+});
+
+<div class="descendants" style="width:500px;">div (current element) 
+  <p>p (child)
+    <span>span (grandchild)</span>   
+  </p>
+  <p>p (child)
+    <span>span (grandchild)</span>
+  </p> 
+</div>
+
+Output:
+------
+2 paragraph will be red 
+
+You can also use an optional parameter to filter the search for children.
+
+The following example returns all <p> elements with the class name "first", that are direct children of <div>:
+
+$(document).ready(function(){
+  $("div").children("p.first").css({"color": "red", "border": "2px solid red"});
+});
+
+Output:
+------
+All paragraph that have class name = "first" it will be red
+
+
+jQuery find() Method
+--------------------
+The find() method returns descendant elements of the selected element, all the way down to the last descendant.
+The following example returns all <span> elements that are descendants of <div>:
+
+$(document).ready(function(){
+  $("div").find("span").css({"color": "red", "border": "2px solid red"});
+});
+
+The following example returns all descendants of <div>:
+
+$(document).ready(function(){
+  $("div").find("*").css({"color": "red", "border": "2px solid red"});
+});
+
+Output:
+-------
+All thing inside div will be red
+
+
+jQuery siblings() Method
+------------------------
+The siblings() method returns all sibling elements of the selected element.
+
+$(document).ready(function(){
+  $("h2").siblings().css({"color": "red", "border": "2px solid red"});
+});
+
+<div>div (parent)
+  <p>p</p>
+  <span>span</span>
+  <h2>h2</h2>
+  <h3>h3</h3>
+  <p>p</p>
+</div>
+
+Output:
+------
+All element without div ıt will be red
+
+------------------------
+
+You can also use an optional parameter to filter the search for siblings.
+
+$(document).ready(function(){
+  $("h2").siblings("span").css({"color": "red", "border": "2px solid red"});
+});
+
+<div>div (parent)
+  <p>p</p>
+  <span>span</span>
+   <span>span</span>
+  <h2>h2</h2>
+  <h3>h3</h3>
+   <span>span</span>
+  <p>p</p>
+</div>
+
+Output:
+------
+only span will be red
+
+
+jQuery next() Method
+--------------------
+The next() method returns the next sibling element of the selected element.
+
+$(document).ready(function(){
+  $("h2").next().css({"color": "red", "border": "2px solid red"});
+});
+
+<div>div (parent)
+  <p>p</p>
+  <span>span</span>
+  <h2>h2</h2>
+  <h3>h3</h3>
+  <p>p</p>
+</div>
+
+Output:
+------
+element after h2 is h3
+it will be red
+
+
+jQuery nextAll() Method
+-----------------------
+$(document).ready(function(){
+  $("h2").nextAll().css({"color": "red", "border": "2px solid red"});
+});
+
+<div>div (parent)
+  <p>p</p>
+  <span>span</span>
+  <h2>h2</h2>
+  <h3>h3</h3>
+  <p>p</p>
+</div>
+
+Output:
+------
+All elements after h2 is h3  and p
+it will be red
+
+jQuery nextUntil() Method
+-------------------------
+The nextUntil() method returns all next sibling elements between two given arguments.
+The following example returns all sibling elements between a <h2> and a <h6> element:
+
+$(document).ready(function(){
+  $("h2").nextUntil("h6").css({"color": "red", "border": "2px solid red"});
+});
+
+<div>div (parent)
+  <p>p</p>
+  <span>span</span>
+  <h2>h2</h2>
+  <h3>h3</h3>
+  <h4>h4</h4>
+  <h5>h5</h5>
+  <h6>h6</h6>
+  <p>p</p>
+</div>
+
+output
+------
+h3 h4 h5 between h2 and h6
+ıt will be red
+
+
+The prev(), prevAll() and prevUntil() methods work just like the methods above but with reverse functionality: they return previous sibling elements 
+
+jQuery Traversing - Filtering
+------------------------------
+The first() method returns the first element of the specified elements.
+
+$(document).ready(function(){
+  $("div").first().css("background-color", "yellow");
+});
+
+Output:
+------
+The first div background will be yellow
+
+
+jQuery last() Method
+-----------------------
+The last() method returns the last element of the specified elements.
+
+$(document).ready(function(){
+  $("div").last().css("background-color", "yellow");
+});
+
+Output:
+------
+The last div background will be yellow
+
+jQuery eq() method
+-------------------
+The eq() method returns an element with a specific index number of the selected elements.
+
+$(document).ready(function(){
+  $("p").eq(1).css("background-color", "yellow");
+});
+
+<p>My name is Donald (index 0).</p>
+<p>Donald Duck (index 1).</p>
+<p>I live in Duckburg (index 2).</p>
+<p>My best friend is Mickey (index 3).</p>
+
+Output:
+-------
+the second p will be yellow because index starts from 0 not 1
+
+jQuery filter() Method
+----------------------
+The filter() method lets you specify a criteria. Elements that do not match the criteria are removed from the selection, and those that match will be returned.
+
+$(document).ready(function(){
+  $("p").filter(".intro").css("background-color", "yellow");
+});
+
+<p>My name is Donald.</p>
+<p class="intro">I live in Duckburg.</p>
+<p class="intro">I love Duckburg.</p>
+<p>My best friend is Mickey.</p>
+
+Output:
+------
+the Second and the thirt element will be yellow because they have the same class Name
+
+jQuery not() Method
+-------------------
+
+The not() method returns all elements that do not match the criteria.
+Tip: The not() method is the opposite of filter().
+
+
+
+
+
+
+-->
