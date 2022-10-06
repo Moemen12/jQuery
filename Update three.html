@@ -298,6 +298,72 @@ Tip: The not() method is the opposite of filter().
 
 
 
+jQuery - AJAX load() Method
+---------------------------
+$(selector).load(URL,data,callback)
+
+
+example:
+-------
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("demo_test.txt");
+  });
+});
+
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+<button>Get External Content</button>
+
+
+Output:
+-----
+jQuery and AJAX is FUN!
+This is some text in a paragraph.
+
+
+The optional callback parameter specifies a callback function to run when the load() method is completed. The callback function can have different parameters:
+
+responseTxt - contains the resulting content if the call succeeds
+statusTxt - contains the status of the call
+xhr - contains the XMLHttpRequest object
+
+example :
+--------
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("demo_test.txt", function(responseTxt, statusTxt, xhr){
+      if(statusTxt == "success")
+        alert("External content loaded successfully!");
+      if(statusTxt == "error")
+        alert("Error: " + xhr.status + ": " + xhr.statusText);
+    });
+  });
+});
+
+
+Output:
+------
+inside alert : 200 success
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
