@@ -351,8 +351,69 @@ This is some text in a paragraph.
 
 
 
+jQuery - AJAX get() and post() Methods
+--------------------------------------
+The jQuery get() and post() methods are used to request data from the server with an HTTP GET or POST request.
+
+GET - Requests data from a specified resource
+POST - Submits data to be processed to a specified resource
+
+Syntax
+------
+$.get(URL,callback);
+
+  $("button").click(function(){
+    $.get("demo_test.asp", function(data, status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
+});
 
 
+Output:
+------
+Data : This is some text from an external data
+Status: Sucess
+
+
+jQuery $.post() Method
+syntax:
+------
+$.post(URL,data,callback)
+
+
+The jQuery noConflict() Method
+-----------------------------
+The noConflict() method releases the hold on the $ shortcut identifier, so that other scripts can use it.
+
+
+$.noConflict();
+jQuery(document).ready(function(){
+  jQuery("button").click(function(){
+    jQuery("p").text("jQuery is still working!");
+  });
+});
+
+<p>This is a paragraph.</p>
+<button>Test jQuery</button>
+
+Output:
+-------
+jQuery is still working!
+
+You can also create your own shortcut very easily. The noConflict() method returns a reference to jQuery,
+that you can save in a variable, for later use. Here is an example:
+
+var jq = $.noConflict();
+jq(document).ready(function(){
+  jq("button").click(function(){
+    jq("p").text("jQuery is still working!");
+  });
+});
+
+Output:
+-------
+jQuery is still working!
 
 
 
