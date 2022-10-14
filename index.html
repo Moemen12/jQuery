@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    img{
+        display:block;
+           margin-bottom:auto;
+        margin-top:auto;
+        border-radius:200px;
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .size{
+        height:500px;
+        margin-top:50px;
+        margin-left:550px;
+        width:500px;
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius:10px;
+        display:flex;
+        justify-content:center;
+
+    }
+    *{
+        margin:0px;
+        padding:0px;
+        text-align:center;
+    }
+    #aralik{
+      width:500px;
+      
+    }
+    #all{
+     margin-top:100px;
+    }
+    #demo{
+        color:red;
+        font-weight:700;
+        font-size:20px;
+        font-family:sans-serif;
+    }
+  
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+  
+ 
+$(document).ready(function(){
+  $('#aralik').on('input', function() {
+   handleRanging();
+   handleSize();
+});
+});
+
+
+function handleSize(){
+   var image = $("#image");
+   var width = image.width($("#aralik").val());
+   var height = image.height($("#aralik").val());
+   image.width() = width*($("#aralik").val() / 100);
+   image.height() = height*($("#aralik").val() / 100);
+}
+
+  function handleRanging(){
+  var slider= $("#aralik");
+  var output= $("#demo");
+  output.html(slider.val()+" piksel");
+  }
+
+</script>
+</head>
+<body>
+  <div class="size">
+  <img src="Smile.png" id="image"/>
+  </div>
+  <div>
+      <div id="all">
+      <p><b style="font-family:sans-serif;">Value :</b> <span id="demo">100 piksel</span></p>
+  <input type="range" min="100" max="500" id="aralik"  value="100">
+</div>
+</div>
+</body>
+</html>
